@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JUNGLE DETECTIVE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/jungle.png"/>
+  </head>
+  <body>
+    <div>
+      <nav class="navbar bg-success-subtle" style="position: fixed; width: 100vw; z-index: 500;">
+        <div class="container-fluid" style="padding: 0; margin: 0;">
+          <a class="" href="#home"><img src="../static/jungle.png" height="40px" style="padding-left: 0; margin: 0;"></a>
+          <a class="nav-link" href="#home" style="padding-left: 60vw;">Home</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#pred">Predict</a>
+          <a class="nav-link" href="#team">Team</a>
+        </div>
+      </nav>
+    </div>
+
+    <div id="home" class="" style="height: 100vh;">
+      <img src="../static/bg.jpg" style="height: 100vh; width: 100vw; z-index: -9; position: fixed;">
+      <div class="bg-success-subtle" style="opacity: 90%; height: 70vh; width: 60vw; z-index: 30; margin-left: 20vw; top: 55%; -ms-transform: translateY(-50%); position: absolute; transform: translateY(-50%);">
+        <h1 class="text-center" style="padding-top: 20vh; color: green;">JUNGLE DETECTIVE</h1>
+        <h2 class="text-center" style="color: blue;">AI-Powered Image Classification Of Wild Big Cats</h2>
+      </div>
+    </div>
+
+    <div id="about" style="height: 100vh;">
+      <div class="bg-success-subtle" style="opacity: 90%; height: 70vh; width: 60vw; z-index: 30; margin-left: 20vw; top: 55%; -ms-transform: translateY(-50%); position: relative; transform: translateY(-50%);">
+        <img src="../static/mm.png" height="230px" style="margin-left: 15vw; margin-top: 1vh;">
+        <p style="text-align: justify; padding: 10px; color: green;">Jungle Detectives is a transfer-learning based web app to identify the 10 big cats based on uploaded image. The app leverages transfer learning model to distinguish the majestic big cats. The big cats that can be identified are awe-inspiring Bengal tiger, the elusive snow leopard, the powerful African lion, the agile cheetah, the mysterious clouded leopard, the majestic jaguar, the enigmatic cougar, the endangered Amur leopard, the graceful serval, and the formidable leopard. By combining image recognition techniques with extensive training data, this state-of-the-art model provides conservationists, wildlife researchers, and enthusiasts with a powerful tool to safeguard and appreciate the beauty and diversity of these magnificent creatures, contributing to their preservation and understanding in their natural habitats.</p>
+      </div>
+    </div>
+
+    <div id="pred" style="height: 100vh;">
+      <div class="bg-success-subtle" style="opacity: 90%; height: 70vh; width: 60vw; z-index: 30; margin-left: 20vw; top: 55%; -ms-transform: translateY(-50%); position: relative; transform: translateY(-50%);">
+        <br>
+        <br>
+        <br>
+        <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <table style="margin: auto;">
+              <tr>
+                <td>
+                  <label class="control-label" style="padding-right: 10px;" for="pwd">Upload Your Image :</label>
+                </td>
+                <td>
+                  <input type="file" class="form-control" style="margin-right: 100px; vertical-align: middle;"  name="image" id="pwd">
+                </td>
+                <td>
+                  <button type="submit" class="btn btn-success" style="margin-left: 10px; vertical-align: middle;">Submit</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </form>
+        {% if prediction %}
+        <table style="margin: auto;">
+          <tr>
+            <td>
+              <img src="{{img_path}}" height="200px" width="200px" style="padding-right: 20px;">
+            </td>
+            <td>
+              <h2 style="padding-left: 20px;">The wild cat is <i> {{prediction}} </i></h2>
+            </td>
+          </tr>
+        </table>
+        {% endif %}  
+      </div>
+    </div>
+
+    <div id="team" style="height: 100vh;">
+      <div class="bg-success-subtle" style="opacity: 90%; height: 70vh; width: 60vw; z-index: 30; margin-left: 20vw; top: 55%; -ms-transform: translateY(-50%); position: relative; transform: translateY(-50%);">
+        <h1 style="position: absolute; margin-left: 35%;">Team-592617</h1>
+        <img src="../static/Sus.jpg" height="150px" width="150px" style="border: 2px solid black; border-radius: 20px; position: relative; margin-left: 55px; margin-top: 170px;">
+        <img src="../static/aaryan bansal.png" height="150px" width="150px" style="border: 2px solid black; border-radius: 20px; position: relative; margin-left: 100px; margin-top: 170px;">
+        <img src="../static/Rou.JPG" height="150px" style="border: 2px solid black; border-radius: 20px; position: relative; margin-left: 100px; margin-top: 170px;">
+        <a href="https://www.linkedin.com/in/SushilKrishnan" class="btn btn-primary" style="margin-left: 68px;">Sushil Krishnan</a>
+        <a href="https://www.linkedin.com/in/aaryan-bansal-76198126a/" class="btn btn-primary" style="margin-left: 130px;">Aaryan Bansal</a>
+        <a href="https://www.linkedin.com/in/rounak-sonthalia-ba07a5229/" class="btn btn-primary" style="margin-left: 125px;">Rounak Sonthalia</a>
+      </div>
+    </div>
+
+    <div style="background-color: darkgreen; z-index: 1000; margin-bottom: 0;">
+      <p style="text-align: center; color: white;">Copyright ©2023 JUNGLE DETECTIVE. All Rights Reserved.</p>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
